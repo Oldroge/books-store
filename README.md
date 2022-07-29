@@ -9,4 +9,5 @@ Desafio da [DIO](https://www.dio.me/) para criar um e-commerce utilizando Angula
 
 ### API:
 Foi usado neste projeto a API do [Mercado Editorial](https://api.mercadoeditorial.org/documentacao/v1.2#paginacao).
+<br>
 https://api.mercadoeditorial.org.
