@@ -1,6 +1,6 @@
 # BOOKS STORE
 
-Desafio da [DIO](https://www.dio.me/) para criar um e-commerce.
+Desafio da [DIO](https://www.dio.me/) para criar um e-commerce utilizando Angular.
 
 
 ### Prototipação:
