@@ -16,6 +16,7 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBooksById();
+    this.getCategoryBooks();
   }
 
   getBooksById(): void {
@@ -37,6 +38,7 @@ export class MainPageComponent implements OnInit {
   getItemsById(id: string[]) {
     this.booksService.getItemsById(id).subscribe({
       next: (bookId) => {
+        console.log(bookId)
         for (let id of bookId) {
           this.itemsById = id['body'];
           this.allPicturesBooks.push(this.itemsById['pictures'][0].url)
@@ -48,6 +50,16 @@ export class MainPageComponent implements OnInit {
         return err.status,
         err.error.error,
         err.error.message;
+      }
+    })
+  }
+
+  getCategoryBooks() {
+    this.booksService.getCategoryBooks().subscribe({
+      next: categoryBooks => {
+        for (let categoryId of categoryBooks['children_categories']) {
+          console.log(categoryId.id)
+        }
       }
     })
   }
