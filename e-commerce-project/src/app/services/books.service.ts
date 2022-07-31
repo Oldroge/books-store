@@ -12,6 +12,8 @@ export class BooksService {
 
   private itemsById = 'https://api.mercadolibre.com/items?ids='
 
+  private categoryBooks = 'https://api.mercadolibre.com/categories/MLB1196';
+
   constructor(private httpClient: HttpClient) { }
   
   getBooksById(): Observable<Books[]> {
@@ -21,4 +23,8 @@ export class BooksService {
   getItemsById(id: string[]): Observable<BooksId[]> {
     return this.httpClient.get<BooksId[]>(this.itemsById + `${id}`);
   }
+
+  getCategoryBooks(): Observable<BooksId[]> {
+    return this.httpClient.get<BooksId[]>(this.categoryBooks);
+  };
 }
