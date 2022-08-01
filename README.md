@@ -8,6 +8,33 @@ Desafio da [DIO](https://www.dio.me/) para criar um e-commerce utilizando Angula
 
 
 ### API:
-Foi usado neste projeto a API do [Mercado Editorial](https://api.mercadoeditorial.org/documentacao/v1.2#paginacao).
+Foi usado neste projeto a API do [Mercado Livre](https://developers.mercadolivre.com.br/pt_br/itens-e-buscas).
 <br>
-https://api.mercadoeditorial.org.
+https://developers.mercadolivre.com.br/pt_br/itens-e-buscas
+
+### Como executar o projeto:
+faça o clone do projeto na sua máquina local:
+```bash
+git clone git@github.com:Oldroge/books-store.git
+```
+
+Navega até a pasta do projeto:
+```bash
+cd books-store
+```
+
+Instale as dependências:
+```bash
+npm install
+```
+
+Para executar o projeto digite:
+```bash
+npm start
+```
+OU
+```bash
+ng serve
+```
+
+
