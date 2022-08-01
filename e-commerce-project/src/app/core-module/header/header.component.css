@@ -1,0 +1,60 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.container-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 221, 0);
+}
+
+.title-style {
+    font-weight: 900;
+}
+
+.btn-styles {
+    background-color: black;
+    color: rgb(255, 221, 0);
+    border-radius: 5px 8px 8px 5px;
+    border: 3px solid black;
+}
+
+.btn-styles:hover {
+    box-shadow: 2px 2px 6px black;
+}
+
+.input-search, .drop-books-types {
+    border: none;
+    border-radius: 2px 4px 4px 2px;
+    outline: 0;
+}
+
+.drop-books-types {
+    height: 40px;
+}
+
+
+
+.input-search:hover, .drop-books-types:hover {
+    box-shadow: 2px 2px 6px black;
+}
+
+.nav-bar-items {
+    align-self: center;
+}
+
+.margin-navbar-input {
+    margin-left: 23px;
+    margin-right: 2px;
+    height: 34px;
+}
+
+.margin-navbar-icons-button {
+    margin-right: 23px;
+    margin-left: 2px;
+}
+
+.container-icons-button {
+    display: flex;
+    width: 120px;
+    justify-content: space-between;
+}
+

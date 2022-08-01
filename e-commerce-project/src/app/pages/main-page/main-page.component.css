@@ -1,0 +1,46 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* Referência para fazer o carrossel: https://stackoverflow.com/questions/70442770/infinite-scrolling-carousel-css-only */
+
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+  
+  .carousel {
+    padding: 100px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel__slide {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+  }
+  
+  .carousel__image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 150px;
+    margin: 3px;
+    border-radius: 4px;
+  }
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -80px;
+}
