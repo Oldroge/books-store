@@ -4,4 +4,5 @@ export interface Books {
 
 export interface BooksId {
     id: string[];
+    children_categories: Array<object>;
 }

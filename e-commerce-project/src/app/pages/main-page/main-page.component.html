@@ -1,12 +1,15 @@
 <section class="carousel">
-    <h1 class="title">Livros</h1>
+    <!-- <h1 class="title" style="background-color: black; color: rgb(255, 221, 0)">test</h1> -->
     <div class="container-fluid px-0">
         <div class="row">
           <div class="col-12">
             <div class="carousel__wrapper">
     
-              <div class="carousel__slide" *ngFor="let book of allPicturesBooks">
-                <div class="carousel__image" [ngStyle]="{'background-image': 'url(' + book + ')'}"></div>
+              <div class="carousel__slide" *ngFor="let item of imagesUrl">
+                <div
+                  class="carousel__image"
+                  [ngStyle]="{'background-image': 'url(' + item + ')'}"
+                ></div>
               </div>
     
             </div>

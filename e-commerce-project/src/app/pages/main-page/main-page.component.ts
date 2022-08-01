@@ -8,43 +8,25 @@ import { Books, BooksId } from '../../models/books';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  public books: Books[];
-  public itemsById: BooksId[];
-  public allPicturesBooks: Array<string> = [];
+  public books: Books[] = [];
+  public uniqueItem: BooksId[] = [];
+  public imagesUrl: Array<string> = [];
 
   constructor(private booksService: BooksService) { }
 
   ngOnInit(): void {
-    this.getBooksById();
-    this.getCategoryBooks();
+    this.filterByCategoryIds();
+
   }
 
-  getBooksById(): void {
-    this.booksService.getBooksById().subscribe({
-      next: books => {
-        this.books = books['results'];
-        for (let bookId of this.books) {
-          this.getItemsById(bookId['id']);
-        }
-      },
-      error: (err) => {
-        return err.status,
-        err.error.error,
-        err.error.message;
-      }
-    })
-  }
-
-  getItemsById(id: string[]) {
-    this.booksService.getItemsById(id).subscribe({
+  
+  getBookByItem(itemId: string) {
+    this.booksService.getBookByItem(itemId).subscribe({
       next: (bookId) => {
-        console.log(bookId)
         for (let id of bookId) {
-          this.itemsById = id['body'];
-          this.allPicturesBooks.push(this.itemsById['pictures'][0].url)
+          this.uniqueItem = id['body'];
+          this.imagesUrl.push(this.uniqueItem['pictures'][0].url);
         }
-        
-        return this.allPicturesBooks;
       },
       error: (err) => {
         return err.status,
@@ -54,14 +36,30 @@ export class MainPageComponent implements OnInit {
     })
   }
 
-  getCategoryBooks() {
+  filterByCategoryIds(): void {
     this.booksService.getCategoryBooks().subscribe({
-      next: categoryBooks => {
-        for (let categoryId of categoryBooks['children_categories']) {
-          console.log(categoryId.id)
+      next: categories => {
+        for (let category of categories['children_categories']) {
+          this.getBooksByCategory(category.id);
         }
       }
     })
   }
 
+  getBooksByCategory(categoryId: object) {
+    this.booksService.getBooksById(categoryId).subscribe({
+      next: books => {
+        for (let book of books['results']) {
+
+          this.getBookByItem(book['id'])
+
+        }
+      },
+      error: (err) => {
+        return err.status,
+        err.error.error,
+        err.error.message;
+      }
+    })
+  }
 }
