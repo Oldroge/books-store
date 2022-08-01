@@ -8,7 +8,7 @@ import { Books, BooksId } from '../models/books';
 })
 export class BooksService {
 
-  private booksUrlCategory = 'https://api.mercadolibre.com/sites/MLB/search?category=MLB1196';
+  private booksUrlCategory = 'https://api.mercadolibre.com/sites/MLB/search?category=';
 
   private itemsById = 'https://api.mercadolibre.com/items?ids='
 
@@ -16,12 +16,12 @@ export class BooksService {
 
   constructor(private httpClient: HttpClient) { }
   
-  getBooksById(): Observable<Books[]> {
-    return this.httpClient.get<Books[]>(this.booksUrlCategory);
+  getBooksById(categoryId: object): Observable<Books[]> {
+    return this.httpClient.get<Books[]>(this.booksUrlCategory + `${categoryId}`);
   }
 
-  getItemsById(id: string[]): Observable<BooksId[]> {
-    return this.httpClient.get<BooksId[]>(this.itemsById + `${id}`);
+  getBookByItem(itemId: string): Observable<BooksId[]> {
+    return this.httpClient.get<BooksId[]>(this.itemsById + `${itemId}`);
   }
 
   getCategoryBooks(): Observable<BooksId[]> {
